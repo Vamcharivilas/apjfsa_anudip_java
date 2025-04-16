@@ -1,0 +1,107 @@
+/*1.Given the initial StringBuilder object sb with the value "Hello", what will sb contain after each of the following operations? Write the intermediate and final state of sb.
+
+sb.append(" World")
+
+sb.insert(5, ",")
+
+sb.replace(6, 12, " Java")
+
+sb.delete(5, 6)
+
+sb.reverse()*/
+package string;
+
+import java.util.Scanner;
+
+public class StringBuilderEx1 {
+	/*
+	 * .Given the initial StringBuilder object sb with the value "Hello", what will
+	 * sb contain after each of the following operations? Write the intermediate and
+	 * final state of sb.
+	 * 
+	 * sb.append(" World")
+	 * 
+	 * sb.insert(5, ",")
+	 * 
+	 * sb.replace(6, 12, " Java")
+	 * 
+	 * sb.delete(5, 6)
+	 * 
+	 * sb.reverse()
+	 */
+
+	public static void main(String[] args) {// Scanner within main
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter value of string:");
+		String s = sc.nextLine();
+
+		StringBuilder sb = new StringBuilder(s);
+
+		System.out.println("After append: " + sb.append(" World"));
+		// append("which is used to add string for existing")
+
+		System.out.println("After insert: " + sb.insert(5, ","));
+		// insert(" which is used insert charstr at certain index")
+
+		System.out.println("After replace: " + sb.replace(6, 12, " Java"));
+		// replace("which is used to replace str at certain index")
+
+		System.out.println("After delete: " + sb.delete(5, 6));
+		// delete("which is used to delete part str at certain index")
+
+		System.out.println("After reverse: " + sb.reverse());
+		// reverse("which is used to reverse str")
+	}
+}
+*************************************************************************************************
+/*2.Write a Java program using StringBuilder to transform the string "OpenAI is amazing" into "amazing is OpenAI".*/
+package string;
+public class StringBuilderEX2 {
+	/*Java program using StringBuilder to transform the string "OpenAI is amazing" 
+	 * into "amazing is OpenAI"*/
+
+    public static void main(String[] args) {
+    	 String originalStr = "OpenAI is amazing";
+
+      
+         String[] words = originalStr.split(" ");
+         // Splitting the string into words
+        
+         StringBuilder sb = new StringBuilder();
+      
+         
+         for (int i = words.length - 1; i >= 0; i--) {
+             sb.append(words[i]);
+             if (i > 0) {
+                 sb.append(" ");
+             }
+         }
+      // Appending words in reverse order to the StringBuilder
+  
+         String TransformStr = sb.toString();
+
+      
+         System.out.println("Original string: " + originalStr);
+         System.out.println("Transformed string: " + TransformStr);
+     }
+ }
+***************************************************************************************************************************
+/*3.Given the string "Java,Python,C++,JavaScript", use StringTokenizer to tokenize this string based on the comma "," delimiter. Write the Java code and list all the tokens.*/
+package string;
+import java.util.StringTokenizer;
+
+public class StringTokenizerEx {
+	/*.Given the string "Java,Python,C++,JavaScript", use StringTokenizer to tokenize
+	 *  this string based on the comma "," delimiter.
+	 *  and list all the tokens.*/
+    public static void main(String[] args) {
+        String s = "Java,Python,C++,JavaScript";
+        StringTokenizer token = new StringTokenizer(s, ",");
+        System.out.println("Tokens:");
+        while (token.hasMoreTokens()) {//StringTokenizer Function
+            String t = token.nextToken();
+            System.out.println(t);
+        }
+    }
+}
