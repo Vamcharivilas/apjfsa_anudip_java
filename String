@@ -1,0 +1,95 @@
+/*1. How to print duplicate characters from the String?*/
+package string;
+
+import java.util.Scanner;
+
+public class Duplicate_CharofString {
+// To print duplicate characters from the String
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+	//	String s = "GREENWOOD";
+		System.out.println("enter the string:");
+		String s = sc.nextLine();
+		duplication(s);
+
+	}
+
+	public static void duplication(String s) {//method to check for duplicates
+		// TODO Auto-generated method stub
+		int length = s.length();
+		for (int i = 0; i < length; i++) {
+			boolean visited = false;
+			for (int j = i + 1; j < length; j++) {
+				if (s.charAt(i) == s.charAt(j)) {
+					visited = true;
+					break;
+				}
+
+			}
+			if (visited && s.charAt(i) != ' ') {//print char of string duplicated
+				System.out.println(s.charAt(i) + " ");
+			}
+
+		}
+
+	}
+
+}
+
+*********************************************************************************************************
+/*2. Write a Java Program to count the number of words in a String without using the Predefined method?*/
+package string;
+
+import java.util.Scanner;
+
+public class Words_Count {
+//To count the number of words in a String without using predefined methods:
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+      //  String s="Iam in Me Within Me ";
+		System.out.println("enter the string:");
+		String s = sc.nextLine();
+        int count = countword(s);
+        System.out.println(s+'='+count);
+	}
+
+	public static int countword(String s) {//method for counting
+		// TODO Auto-generated method stub
+		int countword=0;
+		boolean inword =false;
+		for (char c :s.toCharArray()) {
+			 if (Character.isWhitespace(c)) {//to check space
+	                inword = false;
+	            } else if (!inword) {
+	                countword++;//if there a word count increment
+	                inword = true;
+	            }
+		}
+		
+		return countword;
+	}
+
+}
+
+***********************************************************************************************************************
+/*3. Write a Java Program to remove all white spaces from a String?*/
+package string;
+
+import java.util.Scanner;
+
+public class SpaceRemover {
+//To remove all white spaces from a String
+	public static void main(String[] args) {// Scanner within main
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a string: ");
+		String s = sc.nextLine();
+		String s1 = s.replace(" ", "");// replacing with empty string
+		System.out.println(s1);
+	}
+
+}
+
+
