@@ -1,0 +1,77 @@
+/*Create a Student class and create an array list to add 10 student objects and print them using a for each loop*/
+package lab;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Student {
+	// Create a Student class
+	int rollno;
+	String name;
+
+	Student(int rollno, String name) {
+		this.rollno = rollno;
+		this.name = name;
+	}
+
+	public int getRollNo() {
+		return rollno;
+	}
+
+	public String getName() {
+		return name;
+
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Name  :   " + name + "     ROLLNO    :    " + rollno;
+	}
+
+}
+
+public class StudentArrayList {
+	// create an array list to add 10 student objects and print them using a 
+	//for  each loop
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		ArrayList<Student> students = new ArrayList<>();
+
+		System.out.println("Enter details of 10 students:");
+
+		for (int i = 0; i < 10; i++) {
+			System.out.print("Enter name for student " + (i + 1) + ": ");
+			String name = scanner.nextLine();
+			System.out.print("Enter roll number for student " + (i + 1) + ": ");
+			int rollNumber = scanner.nextInt();
+			scanner.nextLine();
+
+			Student student = new Student(rollNumber, name);
+			students.add(student);
+		}
+
+		System.out.println("\nStudent Details:");
+		for (Student student : students) {
+			System.out.println(student);
+		}
+
+		scanner.close();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
