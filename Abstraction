@@ -1,0 +1,184 @@
+/*1)Creating one superclass Hill stations and three subclasses Manali, Mussoorie, Gulmarg. Subclasses extend the superclass and
+ override its location() and famousfor() method. We will call the location() and famousfor() method by the Parent class’, i.e. Hillstations class.
+ As it refers to the base class object and the base class method overrides the superclass method; the base class method is invoked at runtime.*/
+
+package labs;
+
+import java.util.Scanner;
+
+class HillStation {// parent class
+	// Creating one superclass Hill stations.
+	// As it refers to the base class object and the base class method overrides the
+	// superclass method; the base class method is invoked at runtime.
+	public void location() {
+		System.out.println(" present located in Shivalik hills");
+	}
+
+	public void famousFor() {
+		System.out.println("Mesmerizing beauty of nature");
+	}
+}
+
+class Manali extends HillStation {// subclass/child class of Manali.
+	// Subclasses extend the superclass and override its location() and famousfor()
+	// method
+	@Override
+	public void location() {
+		// TODO Auto-generated method stub
+
+		super.location();
+		System.out.println("Manali climate is cool");
+	}
+
+	@Override
+	public void famousFor() {
+		// TODO Auto-generated method stub
+		System.out.println(" grandees of snow-capped mountain");
+		super.famousFor();
+	}
+
+}
+
+class Mussoorie extends HillStation { // subclass/child class of Mussoorie,.
+	// Subclasses extend the superclass and override its location() and famousfor()
+	// method
+	@Override
+	public void location() {
+		// TODO Auto-generated method stub
+		System.out.println("located at uttranchale MUSSOORIES RANGE");
+		super.location();
+	}
+
+	@Override
+	public void famousFor() {
+		// TODO Auto-generated method stub
+		System.out.println("scenic beauty, good social life and Tasty food");
+		super.famousFor();
+	}
+
+}
+
+class Gulmarg extends HillStation { // subclass/child class of Gulmarg.
+	// Subclasses extend the superclass and override its location() and famousfor()
+	// method
+	@Override
+	public void location() {
+		// TODO Auto-generated method stub
+		System.out.println(" Gulmarg located in  Kashmir Valley");
+		super.location();
+	}
+
+	@Override
+	public void famousFor() {
+		// TODO Auto-generated method stub
+		System.out.println(" magical nature and cable car");
+		super.famousFor();
+	}
+
+}
+
+public class Trip {// Main Class
+//to implement user choice on based on place Manali,Mussoorie,Gulmarg.
+	public static void main(String[] args) {// Scanner class with main
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the name of the hill station (Manali/Mussoorie/Gulmarg):");
+		String choice = sc.nextLine().toLowerCase();
+		HillStation hillStation;
+		switch (choice) {
+		case "manali":
+			hillStation = new Manali();
+			break;
+		case "mussoorie":
+			hillStation = new Mussoorie();
+			break;
+		case "gulmarg":
+			hillStation = new Gulmarg();
+			break;
+		default:
+			System.out.println("enter valid choice!");
+			return;
+		}
+
+		hillStation.location();
+		hillStation.famousFor();
+	}
+
+}
+
+************************************************************************************************************************************
+/*2)create an abstract class called shape with an abstract method calculation(), then create two subclasses ie rectangle and circle and calculate area of rectangle and area of circle.*/
+package labs;
+
+import java.util.Scanner;
+
+abstract class Shape {// abstract superclass
+	// an abstract class called shape
+	// with an abstract method calculation(),
+	abstract double calculation();
+}
+
+class Rectangle extends Shape {// subclass of rectangle
+//  calculate area of rectangle.
+	double length;
+	double breath;
+
+	Rectangle(double length, double breath) {
+		this.length = length;
+		this.breath = breath;
+	}
+
+	@Override
+	double calculation() {
+		// TODO Auto-generated method stub
+		return length * breath;
+	}
+
+}
+
+class Circle extends Shape {// subclass of circle
+//  calculate  area of circle.  
+	double radius;
+
+	Circle(double radius) {
+		this.radius = radius;
+	}
+
+	@Override
+	double calculation() {
+		// TODO Auto-generated method stub
+		return Math.PI * radius * radius;
+	}
+
+}
+
+public class ShapeMain {
+	// to implement user choice calculate area of rectangle and area of circle.
+	public static void main(String[] args) {// Scanner class with main
+
+		// TODO Auto-generated method
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Choose shape to calculate area (Rectangle/Circle):");
+		String choice = sc.nextLine().toLowerCase();
+		switch (choice) {
+		case "rectangle":// rectangle
+			System.out.println("Enter length:");
+			double length = sc.nextDouble();
+			System.out.println("Enter breath:");
+			double breath = sc.nextDouble();
+			Rectangle a = new Rectangle(length, breath);
+			System.out.println("Area of Rectangle: " + a.calculation());
+			break;
+		case "circle":// circle
+			System.out.println("Enter radius:");
+			double radius = sc.nextDouble();
+			Circle b = new Circle(radius);
+			System.out.println("Area of Circle: " + b.calculation());
+			break;
+		default:
+			System.out.println("Enter valid choice!");
+			break;
+		}
+	}
+}
+
