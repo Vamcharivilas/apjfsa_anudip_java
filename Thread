@@ -1,0 +1,158 @@
+/*  1) Create hash map whose keys are1 to 15 and its values cube of keys.
+
+2) Create two thread.one thread is finding average of first 50 numbers and other thread is printing square of number store in array arr={10,15,20,25,30}
+
+write a program to create Book management system.
+
+3) create class name Book,and perform following actions:
+
+Attributes:
+
+bookid,bookName,bookPrice,authorName,library name(static),availability
+
+method:
+
+createBook() will store book details.(add  3 books).
+
+deleteBook() will delete book by Id
+
+displayBook()will display book details*/
+
+
+package lab;
+
+import java.util.HashMap;
+
+public class CubeHashMap {
+// Create hash map whose keys are1 to 15 and its values cube of keys.
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		HashMap<Integer, Integer> cubeMap = new HashMap<>();
+		// to get i value from 1to15
+		for (int i = 1; i <= 15; i++) {
+			cubeMap.put(i, i * i * i);
+		}
+
+		// Print the HashMap
+		System.out.println(cubeMap);
+	}
+
+}
+********************************************************************************************************
+package lab;
+
+public class AverageSquares {
+
+	public static void main(String[] args) {
+//Create two thread.one thread is finding average of first 50 numbers 
+//other thread is printing square of number store in array arr={10,15,20,25,30}
+		// Define the array
+		int[] arr = { 10, 15, 20, 25, 30 };
+
+		// Thread 1: Calculate average of first 50 numbers
+		Thread averageThread = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				int sum = 0;
+				for (int i = 1; i <= 50; i++) {
+					sum += i;
+				}
+				double average = (double) sum / 50;
+				System.out.println("Average of first 50 natural numbers: " + average);
+			}
+		});
+
+		// Thread 2: Print squares of elements in the array
+		Thread squareThread = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				for (int num : arr) {
+					int square = num * num;
+					System.out.println("Square of " + num + ": " + square);
+				}
+			}
+		});
+
+		// Start both threads
+		averageThread.start();
+		squareThread.start();
+	}
+}
+
+********************************************************************************************************
+package lab;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+class Book {
+	/*
+	 * create class name Book,and perform following actions: Attributes: book
+	 * id,bookName,bookPrice,authorName,library name(static),availability
+	 */
+	int bookId;
+	String bookName;
+	double bookPrice;
+	String authorName;
+	static String libraryName = "Central Library"; // Static attribute
+	boolean availability;
+
+	public void createBook() {
+//    	createBook() will store book details.(add  3 books).
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Enter book ID: ");
+		bookId = scanner.nextInt();
+		System.out.print("Enter book name: ");
+		bookName = scanner.next();
+		System.out.print("Enter book price: ");
+		bookPrice = scanner.nextDouble();
+		System.out.print("Enter author name: ");
+		authorName = scanner.next();
+		availability = true; // Assuming book is available initially
+	}
+
+	public void deleteBook(int bookId) {
+		// deleteBook() will delete book by Id
+		// Logic to delete book based on ID (implement later)
+		System.out.println("Deleting book with ID: " + bookId);
+	}
+
+	public void displayBook() {
+		// displayBook()will display book details
+		System.out.println("Book ID: " + bookId);
+		System.out.println("Book Name: " + bookName);
+		System.out.println("Book Price: " + bookPrice);
+		System.out.println("Author Name: " + authorName);
+		System.out.println("Library Name: " + libraryName);
+		System.out.println("Availability: " + availability);
+	}
+}
+
+public class BookManagementSystem {
+	public static void main(String[] args) {
+		/* write a program to create Book management system. */
+		List<Book> books = new ArrayList<>();
+
+		// Create 3 books
+		Book book1 = new Book();
+		book1.createBook();
+		books.add(book1);
+
+		Book book2 = new Book();
+		book2.createBook();
+		books.add(book2);
+
+		Book book3 = new Book();
+		book3.createBook();
+		books.add(book3);
+
+		// Display all books
+		for (Book book : books) {
+			book.displayBook();
+			System.out.println();
+		}
+	}
+}
+
+
