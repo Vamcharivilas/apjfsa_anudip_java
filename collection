@@ -1,0 +1,109 @@
+/*Write a Java program to retrieve, but not remove, the last element of a linked list.
+
+Write a Java program to sort a given array list.
+
+Write a Java program to replace the second element of an ArrayList with the specified element.
+
+Write a Java program to iterate a linked list in reverse order.*/
+
+package lab;
+
+import java.util.LinkedList;
+
+public class LinkedListEx {
+//Java program to retrieve, but not remove, the last element of a linked list.
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		LinkedList<Integer> list = new LinkedList<>();
+        list.add(11);
+        list.add(22);
+        list.add(33);
+        list.add(44);
+        list.add(55);
+        int lastElement = list.getLast();
+        System.out.println("Last element: " + lastElement);
+
+	}
+
+}
+*********************************************************************************************************
+package lab;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class ArrayListEx {
+// Java program to sort a given array list.
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		List<Integer> numbers = new ArrayList<>();
+        numbers.add(3);
+        numbers.add(1);
+        numbers.add(4);
+        numbers.add(1);
+        numbers.add(5);
+        numbers.add(9);
+
+
+        System.out.println("Before sorting: " + numbers);
+
+        Collections.sort(numbers);
+
+        System.out.println("After sorting: " + numbers);
+
+	}
+
+}
+************************************************************************************************************
+package lab;
+
+import java.util.ArrayList;
+
+public class ArrayList_Replace {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ArrayList<Integer> list = new ArrayList<Integer>();
+        list.add(11);
+        list.add(22);
+        list.add(33);
+        list.add(44);
+        list.add(55);
+
+        int index = 1; // index of the element to be replaced
+        int newElement = 66;
+        System.out.println("ArrayList before replacement: " + list);
+        if (index >= 0 && index < list.size()) {
+            list.set(index, newElement);
+            System.out.println("ArrayList after replacement: " + list);
+        } else {
+            System.out.println("Index out of range. Cannot replace.");
+        }
+	}
+
+}
+************************************************************************************************************************
+package lab;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+
+public class LinkedList_Reverse {
+// Java program to iterate a linked list in reverse order.
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 LinkedList<String>  
+		 list = new LinkedList<>();
+		        list.add("A");
+		        list.add("B");
+		        list.add("C");
+		        list.add("D");
+		        list.add("E");
+		        Iterator<String> iterator = list.descendingIterator();
+		        while (iterator.hasNext()) {
+		            System.out.println(iterator.next());
+		        }
+
+	}
+
+}
