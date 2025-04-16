@@ -1,0 +1,77 @@
+/*WAP in java in inheritance with constructor and all access specifier with different packages*/
+package vehicle;
+
+public class Vehicle {
+//class vehicle within vehicle package.
+	private String model; // Private field
+	protected int maxSpeed; // Protected field
+
+	// Public constructor with arguments
+	public Vehicle(String model, int maxSpeed) {
+		this.model = model;
+		this.maxSpeed = maxSpeed;
+		System.out.println("Public constructor: Vehicle(" + model + ", " + maxSpeed + ")");
+	}
+
+	// Private method for internal calculations
+	private double FuelEfficiency() {
+		// for efficiency calculation based on maxSpeed
+		return 10.0; // Example value
+	}
+
+	// Protected method accessible to subclasses
+	protected void VehicleDetails() {
+		System.out.println("Model: " + model);
+		System.out.println("Max Speed: " + maxSpeed + " km/h");
+	}
+
+	// method (package-private)
+	public void startEngine() {
+		System.out.println("Vehicle engine started");
+	}
+}
+***********************************************************************************************
+package car;
+
+import vehicle.Vehicle;
+
+//importing class vehicle from vehicle package.
+public class Car extends Vehicle {
+//class car within car package.
+	private String fuelType; // Private field specific to Car
+
+	// Public constructor with additional argument
+	public Car(String model, int maxSpeed, String fuelType) {
+		super(model, maxSpeed); // Call base class constructor
+		this.fuelType = fuelType;
+		System.out.println("Public constructor: Car(" + model + ", " + maxSpeed + ", " + fuelType + ")");
+	}
+
+	// Access protected method from the base class
+	@Override
+	protected void VehicleDetails() {
+		super.VehicleDetails(); // Call base class method
+		System.out.println("Fuel Type: " + fuelType);
+	}
+
+	// Cannot access private methods (FuelEfficiency) from the base class
+
+	// default method for Car-specific functionality
+	void accelerate() {
+		System.out.println("Car is accelerating");
+	}
+}
+*************************************************************************************************************
+package car;
+
+public class Driving {// Main class
+// inheritance with constructor and all access specifier with different packages
+	public static void main(String[] args) {
+		// Create a Car object
+		Car car = new Car("Scorpio", 200, "petrol");
+		car.VehicleDetails(); // Calls overridden printVehicleDetails()
+		car.startEngine(); // Calls startEngine()
+		car.accelerate(); // Car's defaultspecific method
+	}
+}
+****************************************************************
