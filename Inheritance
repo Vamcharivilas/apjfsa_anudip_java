@@ -1,0 +1,83 @@
+/*1)Create a parent class called "Vehicle" with attributes such as brand, model, year, and a method called "drive".
+ Create a child class called "Car" that inherits from Vehicle and has an additional attribute called "color" and 
+a method called "honk". Create an object of the Car class and call both the "drive" and "honk" methods.*/
+
+
+package labs;
+
+class Vehicle {// Parent/super class
+	// Create a parent class called "Vehicle"
+	String brand, model;// attributes such as brand, model, year,
+	int year;
+
+	void drive() {// method called "drive"
+		System.out.println(brand + " " + model + "Seuzzzzzzzzzzzz" + year);
+	}
+}
+
+class Car extends Vehicle {// child/sub class
+	// Create a child class called "Car" that inherits from Vehicle
+	String colour;// attribute called "color"
+
+	void honk() {// method called "honk"
+		System.out.println(colour + " Car loud noise  horn tvu! kick!");
+	}
+}
+
+public class CarMain {// Main Class
+//Create an object of the Car class and call both the "drive" and "honk" methods.
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Car c = new Car();// Object creation
+		c.brand = "BMW";
+		c.model = "RR";
+		c.year = 1999;
+		c.colour = "RED";
+		c.drive();// drive method
+		c.honk();// honk method
+	}
+
+}
+*******************************************************************************************************
+2)Create a parent class called "Person" with attributes such as name, age, and a method called "speak". Create a child class called "Student" 
+that inherits from Person and has an additional attribute called "grade" and a method called "study".
+ Create an object of the Student class and call both the "speak" and "study" methods.*/
+
+
+
+package labs;
+
+class Person {// Parent/super class
+	// Create a parent class called "Person"
+	String name;// attributes such as name, age
+	int age;
+
+	void speak() {// method called "speak"
+		System.out.println(name + " Speaking  Heyyy");
+	}
+}
+
+class Student extends Person {// child/sub class
+	// Create a child class called "Student" that inherits from Person
+	String grade;// attribute called "grade"
+
+	public void study() {// method called "study"
+		System.out.println(name + " is studying hard for grade " + grade + " ");
+	}
+}
+
+public class StudentMain {// Main Class
+//Create an object of the Student class and call both the "speak" and "study" methods.
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Student s = new Student();// object creation
+		s.age = 21;
+		s.grade = "A1";
+		s.name = "VAMC";
+		s.speak();// speak method
+		s.study();// study method
+	}
+
+}
+
+
