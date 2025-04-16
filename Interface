@@ -1,0 +1,150 @@
+/*1)Create an interface called "Person" with a method called "speak". Create two classes  called "Student" and "Teacher" that implement  the Person interface and implement the "speak" method. 
+Create objects of both the Student and  Teacher classes and call their respective "speak"  methods.*/
+package lab;
+
+interface Person {
+	// )An interface called "Person" with a method called "speak".
+	public void speak();
+}
+
+class Student1 implements Person {
+//Student class implementing person interface
+	@Override
+	public void speak() {// "speak" methods
+		// TODO Auto-generated method stub
+		System.out.println("All students wishes  teacher GOOD MORONING! at a time ");
+	}
+
+}
+
+class Teacher implements Person {
+//Teacher class implementing person interface
+	@Override
+	public void speak() {// "speak" methods
+		// TODO Auto-generated method stub
+		System.out.println("Teacher ask students to play");
+	}
+
+}
+
+public class StudentTeacher {
+
+//objects of both the Student and  Teacher classes and call their respective "speak"  methods.
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Student1 s = new Student1();// Student object speak()
+		s.speak();
+		Teacher t = new Teacher();// Teacher object speak()
+		t.speak();
+	}
+
+}
+*****************************************************************************
+/*2)create an interface representing a basic banking functionality, create an interface "BankingInterface " with abstract methods "deposit",
+ "Withdraw" and "getBalance" and then implement it with two different types of bank accounts: savings account and current account.*/
+
+
+package lab;
+
+import java.util.Scanner;
+
+interface Banking {// interface "BankingInterface "
+//An interface representing a basic banking functionality, 
+//with abstract methods "deposit", "Withdraw" and "getBalance"
+	public void deposit(double amount);// abstract deposit method
+
+	public void withdraw(double amount);// abstract withdraw method
+
+	public double getBalance();// abstract getbalance method
+}
+
+class Savings implements Banking {// Savings account class implementing Banking
+	double balance;
+
+	@Override
+	public void deposit(double amount) {// deposit method
+		// TODO Auto-generated method stub
+		balance = balance + amount;
+		System.out.println("Deposit of" + amount);
+	}
+
+	@Override
+	public void withdraw(double amount) {// withdraw method
+		// TODO Auto-generated method stub
+		if (balance >= amount) {
+			balance = balance - amount;
+			System.out.println("Withdrawal" + amount);
+		} else {
+			System.out.println("Insufficient balance");
+		}
+	}
+
+	@Override
+	public double getBalance() {// get Balance method
+		// TODO Auto-generated method stub
+		return balance;
+	}
+
+}
+
+class Current implements Banking {// Current account class implementing Banking
+	double balance;
+
+	@Override
+	public void deposit(double amount) {// deposit method
+		// TODO Auto-generated method stub
+		balance = balance + amount;
+		System.out.println("Deposit of" + amount);
+	}
+
+	@Override
+	public void withdraw(double amount) {// withdraw method
+		// TODO Auto-generated method stub
+		if (balance >= amount) {
+			balance = balance - amount;
+			System.out.println("Withdrawal" + amount);
+		} else {
+			System.out.println("Insufficient balance");
+		}
+	}
+
+	@Override
+	public double getBalance() {// get Balance method
+		// TODO Auto-generated method stub
+		return balance;
+
+	}
+
+}
+
+public class SBI {// SBI class
+// To implement  savings account and current account.
+	public static void main(String[] args) {// Scanner class within main
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		Savings s = new Savings();// savings account object
+		Current c = new Current();// current account object
+		System.out.print("Enter deposit amount for savings account: ");
+		double depositAmount = sc.nextDouble();
+		s.deposit(depositAmount);
+
+		System.out.print("Enter deposit amount for Current account: ");
+		depositAmount = sc.nextDouble();
+		c.deposit(depositAmount);
+
+		System.out.print("Enter withdrawal amount from savings account: ");
+		double withdraw = sc.nextDouble();
+		s.withdraw(withdraw);
+
+		System.out.print("Enter withdrawal amount from Current account: ");
+		double withdraw1 = sc.nextDouble();
+		c.withdraw(withdraw1);
+		System.out.println("Savings Account Balance:" + s.getBalance());
+
+		System.out.println("Current Account Balance:" + c.getBalance());
+
+		sc.close();
+
+	}
+
+}
